@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.button_coordinator2:
+                Intent intent2 = new Intent(this, CustomBottomSheetActivity.class);
+                startActivity(intent2);
                 break;
             case R.id.button_coordinator3:
                 break;

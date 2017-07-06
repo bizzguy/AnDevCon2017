@@ -18,8 +18,6 @@ import java.util.HashMap;
 
 public class BottomSheetActivity extends AppCompatActivity {
 
-    private BottomSheetBehavior mBottomSheetBehavior;
-
     private TextView mSheetOffsetText;
 
     private TextView mSheetStateText;
@@ -39,15 +37,16 @@ public class BottomSheetActivity extends AppCompatActivity {
         mStateMap.put(4, "COLLAPSED");
         mStateMap.put(5, "HIDDEN");
 
-        LinearLayout bottomSheet = (LinearLayout) findViewById(R.id.container_bottom_sheet);
-
         mSheetOffsetText = (TextView) findViewById(R.id.text_drawer_offset);
         mSheetStateText = (TextView) findViewById(R.id.text_sheet_state);
-        mBottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
-        mBottomSheetBehavior.setHideable(false); // so that it cannot be swiped away
-        mBottomSheetBehavior.setPeekHeight(
+
+        LinearLayout bottomSheet = (LinearLayout) findViewById(R.id.container_bottom_sheet);
+
+        BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
+        bottomSheetBehavior.setHideable(false); // so that it cannot be swiped away
+        bottomSheetBehavior.setPeekHeight(
                 getResources().getDimensionPixelSize(R.dimen.bottom_sheet_peek_height));
-        mBottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
                 String stateText = "Current state is: " + mStateMap.get(newState);
@@ -60,13 +59,11 @@ public class BottomSheetActivity extends AppCompatActivity {
                 mSheetOffsetText.setText(offsetText);
             }
         });
-        mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
         String stateTextInitial = "Current state is: " + mStateMap
-                .get(mBottomSheetBehavior.getState());
+                .get(bottomSheetBehavior.getState());
         mSheetStateText.setText(stateTextInitial);
         String sheetOffsetInitial = "Sheet Offset is: 1.0";
         mSheetOffsetText.setText(sheetOffsetInitial);
-
-
     }
 }
