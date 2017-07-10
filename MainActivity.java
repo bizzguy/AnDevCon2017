@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button percentRelativeLayout = (Button) findViewById(R.id.button_percent_relative_layout);
         Button percentToConstraintButton = (Button) findViewById(R.id.button_percent_to_constraint);
         Button constraintChainButton = (Button) findViewById(R.id.button_constraint_chain);
-        Button allTheLayoutsButton = (Button) findViewById(R.id.button_all_layouts);
+        Button allTheLayoutsButton = (Button) findViewById(R.id.button_constraint_playground);
 
         bottomSheetButton.setOnClickListener(this);
         customBottomSheetButton.setOnClickListener(this);
@@ -56,8 +56,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent5);
                 break;
             case R.id.button_constraint_chain:
+                Intent intent6 = new Intent(this, ConstraintChainsActivity.class);
+                startActivity(intent6);
                 break;
-            case R.id.button_all_layouts:
+            case R.id.button_constraint_playground:
+                Intent intent7 = new Intent(this, ConstraintPlaygroundActivity.class);
+                startActivity(intent7);
                 break;
         }
     }
