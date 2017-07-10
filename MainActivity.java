@@ -44,10 +44,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent2);
                 break;
             case R.id.button_coordinator3:
+                Intent intent3 = new Intent(this, FABCollapsingToolbarActivity.class);
+                startActivity(intent3);
                 break;
             case R.id.button_percent_relative_layout:
+                Intent intent4 = new Intent(this, PercentRelativeLayoutActivity.class);
+                startActivity(intent4);
                 break;
             case R.id.button_percent_to_constraint:
+                Intent intent5 = new Intent(this, PercentToConstraintActivity.class);
+                startActivity(intent5);
                 break;
             case R.id.button_constraint_chain:
                 break;
