@@ -61,38 +61,44 @@ public class CustomBottomSheetBehavior<V extends View> extends CoordinatorLayout
     /**
      * The bottom sheet is dragging.
      */
-    public static final int STATE_DRAGGING = 1;
+    static final int STATE_DRAGGING = 1;
 
     /**
      * The bottom sheet is settling.
      */
-    public static final int STATE_SETTLING = 2;
+    static final int STATE_SETTLING = 2;
 
     /**
      * The bottom sheet is expanded_half_way.
      */
-    public static final int STATE_ANCHOR_POINT = 3;
+    static final int STATE_ANCHOR_POINT = 3;
 
     /**
      * The bottom sheet is expanded.
      */
-    public static final int STATE_EXPANDED = 4;
+    static final int STATE_EXPANDED = 4;
 
     /**
      * The bottom sheet is collapsed.
      */
-    public static final int STATE_COLLAPSED = 5;
+    static final int STATE_COLLAPSED = 5;
 
     /**
      * The bottom sheet is hidden.
      */
-    public static final int STATE_HIDDEN = 6;
+    static final int STATE_HIDDEN = 6;
 
-    /** @hide */
+    private int mPeekHeight;
+
+    private int mAnchorPoint;
+
+    private boolean mHideable;
+
+
     @IntDef({STATE_EXPANDED, STATE_COLLAPSED, STATE_DRAGGING, STATE_ANCHOR_POINT, STATE_SETTLING,
             STATE_HIDDEN})
     @Retention(RetentionPolicy.SOURCE)
-    public @interface State {
+    @interface State {
 
     }
 
@@ -102,17 +108,13 @@ public class CustomBottomSheetBehavior<V extends View> extends CoordinatorLayout
 
     private float mMinimumVelocity;
 
-    private int mPeekHeight;
-
     private int mMinOffset;
 
     private int mMaxOffset;
 
     private static final int DEFAULT_ANCHOR_POINT = 700;
 
-    private int mAnchorPoint;
 
-    private boolean mHideable;
 
     @State
     private int mState = STATE_ANCHOR_POINT;

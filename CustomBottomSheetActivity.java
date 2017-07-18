@@ -49,7 +49,7 @@ public class CustomBottomSheetActivity extends AppCompatActivity{
         bottomSheetBehavior.setHideable(false); // so that it cannot be swiped away
         bottomSheetBehavior.setPeekHeight(
                 getResources().getDimensionPixelSize(R.dimen.bottom_sheet_peek_height));
-        bottomSheetBehavior.setAnchorPoint(700);
+        bottomSheetBehavior.setAnchorPoint(R.dimen.bottom_sheet_anchor_point);
         bottomSheetBehavior.addBottomSheetCallback(
                 new CustomBottomSheetBehavior.BottomSheetCallback(){
                     @Override
